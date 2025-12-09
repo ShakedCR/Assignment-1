@@ -2,6 +2,24 @@
 
 GET http://localhost:3000/
 
+###
+
+POST http://localhost:3000/sender
+Content-Type: application/json  
+
+{
+  "senderName": "The Wachowskis",
+  "senderEmail": "wachowskis@example.com"
+}
+
+###
+POST http://localhost:3000/sender
+Content-Type: application/json  
+
+{
+  "senderName": "Jack",
+  "senderEmail": "jack@example.com"
+}
 
 ###
 POST http://localhost:3000/post
@@ -10,8 +28,13 @@ Content-Type: application/json
 {
   "title": "The Matrix",
   "content": "A computer hacker learns about the true nature of his reality.",
-  "sender": "The Wachowskis"
+  "sender": "6938a60573afda785d6c96df"
 }
+
+
+###
+
+GET http://localhost:3000/post?sender=6938a60573afda785d6c96df
 
 ###
 GET http://localhost:3000/post/69389c7b9b8da04029b13eea
@@ -26,5 +49,5 @@ Content-Type: application/json
 {
   "title": "Inception",
   "content": "A mind-bending thriller about dreams within dreams.",
-  "sender": "Christopher Nolan"
+  "sender": "6938b18656c7a456dad0d3d8"
 }

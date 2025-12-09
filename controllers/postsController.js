@@ -2,17 +2,14 @@ const postModel = require('../models/postsModel');
 
 const getAllPosts = async (req, res) => {
   try {
-    const senderId = req.query.sender;
-    if (senderId) {
-      const posts = await postModel.find({ sender: senderId });
-      if(!posts || posts.length === 0) {
-        return res.status(404).send("No posts found for the specified sender");
-      }
-      return res.json(posts);
-    } 
-    const allPosts = await postModel.find();
-    return res.status(200).json(allPosts);
-    
+    const senderFilter = req.query.sender;
+    let posts;
+    if (senderFilter) {
+      posts = await postModel.find({ sender: senderFilter });
+    } else {
+      posts = await postModel.find();
+    }
+    res.json(posts);
   } catch (err) {
     console.error(err);
     res.status(500).send("Error retrieving posts");
