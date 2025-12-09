@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
-    title: {
+   title: {
         type: String,
         required: true,
     },
@@ -9,12 +9,11 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    sender: {
-        type: String,
-        required: true,
+  sender: {
+      type: String,
+      required: true,
     },
 });
+const postsModel = mongoose.model('post', postSchema);
 
-const postModel = mongoose.model('Post', postSchema);
-
-module.exports = postModel;
+module.exports = postsModel;
