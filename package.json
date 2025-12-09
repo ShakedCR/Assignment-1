@@ -1,11 +1,19 @@
 {
+  "name": "back_b",
+  "version": "1.0.0",
+  "description": "FSD backend",
+  "main": "index.js",
+  "author": "Ron Burachenko & Shaked Crissy",
+  "license": "ISC",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.2.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
   },
   "scripts": {
-    "start": "node --env-file=.env ./index.js"
+    "start": "node --env-file=.env ./index.js",
+    "dev": "nodemon --env-file=.env ./index.js"
   }
 }
