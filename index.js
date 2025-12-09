@@ -10,13 +10,13 @@ mongoose.connect(process.env.DATABASE_URL)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB...', err));   
 
-app.get("/movie", (req, res) => {
-  res.send("movie Created");
+app.get("/post", (req, res) => {
+  res.send("post Created");
 });
 app.use(express.json());
 
-const moviesRoute = require("./routes/moviesRoute");
-app.use("/movie", moviesRoute);
+const postsRoute = require("./routes/postsRoute");
+app.use("/post", postsRoute);
 
 
 app.listen(port, () => {

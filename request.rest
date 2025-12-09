@@ -4,25 +4,27 @@ GET http://localhost:3000/
 
 
 ###
-POST http://localhost:3000/movie
-Content-Type: application/json  
+POST http://localhost:3000/post
+Content-Type: application/json
 
 {
-  "title": "Inception",
-  "year": 2010
+  "title": "The Matrix",
+  "content": "A computer hacker learns about the true nature of his reality.",
+  "sender": "The Wachowskis"
 }
 
 ###
-GET http://localhost:3000/movie/69387a43f2d9e5aab8c14706
+GET http://localhost:3000/post/69389c7b9b8da04029b13eea
 
 ###
-DELETE http://localhost:3000/movie/69387a43f2d9e5aab8c14706
+DELETE http://localhost:3000/post/69389c7b9b8da04029b13eea
 
 ###
-PUT http://localhost:3000/movie/69149147288d1775ac1bd336
+PUT http://localhost:3000/post/69389c7b9b8da04029b13eea
 Content-Type: application/json  
 
 {
   "title": "Inception",
-  "year": 2013
+  "content": "A mind-bending thriller about dreams within dreams.",
+  "sender": "Christopher Nolan"
 }
