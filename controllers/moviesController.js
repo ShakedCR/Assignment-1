@@ -1,65 +1,73 @@
-//const movieModel = require('../models/movieModel');
+const movieModel = require('../models/moviesModel');
 
 const getAllMovies = async (req, res) => {
-    try {
-        const years = req.query.year;
-        if (years) {
-            const moviesByYears = await movieModel.find({ year: { $in: years.split(',') } });
-            return res.json(moviesByYears);
-        }else{
-            const movies = await movieModel.find();
-            res.json(movies);
-        }
-    } catch (error) {
-        res.status(500).json({ message: error.message });
+  try {
+    const year = req.query.year;
+    if (year) {
+      const moviesByYear = await movieModel.find({ year: year });
+      return res.json(moviesByYear);
+    } else {
+      const movies = await movieModel.find();
+      res.json(movies);
     }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error retrieving movies");
+  }
 };
+
 const getMovieById = async (req, res) => {
-    const id = req.params.id;
-    try {
-        const movie = await movieModel.findById(id);
-        res.json(movie);
-    } catch (error) {
-        res.status(500).json({"No movie found with that ID": error.message});
-    }
+  const id = req.params.id;
+  try {
+    const movie = await movieModel.findById(id);
+    res.json(movie);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error retrieving movie by ID");
+  }
 };
 
 const createMovie = async (req, res) => {
-    const movieData = req.body;
-    console.log(movieData);
-    try {
-        const newMovie = await movieModel.create(movieData);
-        res.status(201).json(newMovie);
-    } catch (error) {
-        res.status(500).json({ "Cannot create movie": error.message });
-    }
+  const movieData = req.body;
+  console.log(movieData);
+  try {
+    const newMovie = await movieModel.create(movieData);
+    res.status(201).json(newMovie);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error creating movie");
+  }
 };
 
 const deleteMovie = async (req, res) => {
-    const id = req.params.id;
-    try {
-        const deletedMovie = await movieModel.findByIdAndDelete(id);
-        res.status(200).json(deletedMovie);
-    } catch (error) {
-        res.status(500).json({ "Cannot delete movie": error.message });
-    }
+  const id = req.params.id;
+  try {
+    const deletedMovie = await movieModel.findByIdAndDelete(id);
+    res.status(200).json(deletedMovie);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error deleting movie");
+  }
 };
 
 const updateMovie = async (req, res) => {
-    const id = req.params.id;
-    const updatedData = req.body;
-    try {
-        const movie = await movieModel.findByIdAndUpdate(id, updatedData, { new: true });
-        res.status(200).json(movie);
-    } catch (error) {
-        res.status(500).json({ "Cannot update movie": error.message });
-    }
+  const id = req.params.id;
+  const updatedData = req.body;
+  try {
+    const movie = await movieModel.findByIdAndUpdate(id, updatedData, {
+      new: true,
+    });
+    res.json(movie);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error updating movie");
+  }
 };
 
 module.exports = {
-    getAllMovies,
-    getMovieById,
-    addMovie: createMovie,
-    deleteMovie,
-    updateMovie
-}
+  getAllMovies,
+  getMovieById,
+  createMovie,
+  deleteMovie,
+  updateMovie,
+};
