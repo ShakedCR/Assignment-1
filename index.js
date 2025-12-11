@@ -3,6 +3,8 @@ const app = express();
 const port = process.env.PORT;
 const sendersRoute = require("./routes/sendersRoute");
 const postsRoute = require("./routes/postsRoute");
+const commentsRoute = require("./routes/commentsRoute");
+
 
 
 app.use(express.json());
@@ -19,6 +21,8 @@ mongoose.connect(process.env.DATABASE_URL)
 //controllers
 app.use("/post", postsRoute);
 app.use("/sender", sendersRoute);
+app.use("/comment", commentsRoute);
+
 
 app.listen(port, () => {
 console.log(`Example app listening at http://localhost:${port}`)

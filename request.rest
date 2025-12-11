@@ -28,26 +28,61 @@ Content-Type: application/json
 {
   "title": "The Matrix",
   "content": "A computer hacker learns about the true nature of his reality.",
-  "sender": "6938a60573afda785d6c96df"
+  "sender": "693b35badb2b2bb5813cde5b"
 }
 
 
 ###
 
-GET http://localhost:3000/post?sender=6938a60573afda785d6c96df
+GET http://localhost:3000/post?sender=693b35badb2b2bb5813cde5b
 
 ###
-GET http://localhost:3000/post/69389c7b9b8da04029b13eea
+GET http://localhost:3000/post/693b3616db2b2bb5813cde61
 
 ###
-DELETE http://localhost:3000/post/69389c7b9b8da04029b13eea
+DELETE http://localhost:3000/post/693b34c0db2b2bb5813cde51
 
 ###
-PUT http://localhost:3000/post/69389c7b9b8da04029b13eea
+PUT http://localhost:3000/post/693b3616db2b2bb5813cde61
 Content-Type: application/json  
 
 {
   "title": "Inception",
   "content": "A mind-bending thriller about dreams within dreams.",
-  "sender": "6938b18656c7a456dad0d3d8"
+  "sender": "693b334edb2b2bb5813cde30"
 }
+
+
+
+###
+POST http://localhost:3000/comment
+Content-Type: application/json
+
+{
+  "content": "This post is awesome!",
+  "post": "693b3616db2b2bb5813cde61",
+  "sender": "693b334edb2b2bb5813cde30"
+}
+
+###
+GET http://localhost:3000/comment
+
+###
+GET http://localhost:3000/comment?post=693b2f0f735255e9e6158227
+
+###
+GET http://localhost:3000/comment/693b313e735255e9e615823a
+
+###
+PUT http://localhost:3000/comment/693b313e735255e9e615823a
+Content-Type: application/json
+
+{
+  "content": "Nevermind i dont like this post",
+  "post": "693b2f0f735255e9e6158227",
+  "sender": "693b2e1c735255e9e6158225"
+}
+
+###
+DELETE http://localhost:3000/comment/693b313e735255e9e615823a
+
