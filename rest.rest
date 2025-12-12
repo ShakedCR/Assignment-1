@@ -14,7 +14,6 @@
 
 ### Delete a Comment by ID DELETE http://localhost:3000/comments/VALID_COMMENT_ID Content-Type: application/json
 
-### Delete All Comments DELETE http://localhost:3000/comments Content-Type: application/json
 
 
 //POSTS API REQUESTS

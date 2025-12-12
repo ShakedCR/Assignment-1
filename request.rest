@@ -112,6 +112,5 @@ Content-Type: application/json
 ###
 DELETE http://localhost:3000/comment/693bd570a3ac5aab38612432
 
-### 
-DELETE http://localhost:3000/comment
+
 
