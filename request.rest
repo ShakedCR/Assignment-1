@@ -2,6 +2,7 @@
 
 GET http://localhost:3000/
 
+
 ###
 
 POST http://localhost:3000/sender
@@ -17,8 +18,8 @@ POST http://localhost:3000/sender
 Content-Type: application/json  
 
 {
-  "senderName": "Jack",
-  "senderEmail": "jack@example.com"
+  "senderName": "Ron_Shaked",
+  "senderEmail": "ron_shaked@example.com"
 }
 
 ###
@@ -28,9 +29,36 @@ Content-Type: application/json
 {
   "title": "The Matrix",
   "content": "A computer hacker learns about the true nature of his reality.",
+  "sender": "693bcbfeb50c91328886a258"
+}
+
+###
+
+POST http://localhost:3000/post
+Content-Type: application/json
+
+{
+  "title": "Barbie",
+  "content": "and ken",
+  "sender": "693bcbfeb50c91328886a258"
+}
+
+###
+
+PUT http://localhost:3000/post/693bcc91d5c8a3c0c5d3630f
+Content-Type: application/json  
+
+{
+  "title": "The Matrix Reloaded",
+  "content": "The second installment in The Matrix trilogy.",
   "sender": "693b35badb2b2bb5813cde5b"
 }
 
+###
+DELETE http://localhost:3000/post/693bcc91d5c8a3c0c5d3630f
+
+###
+DELETE http://localhost:3000/post
 
 ###
 
@@ -59,7 +87,7 @@ POST http://localhost:3000/comment
 Content-Type: application/json
 
 {
-  "content": "This post is awesome!",
+  "content": "This post is awesome!!",
   "post": "693b3616db2b2bb5813cde61",
   "sender": "693b334edb2b2bb5813cde30"
 }
@@ -74,15 +102,16 @@ GET http://localhost:3000/comment?post=693b2f0f735255e9e6158227
 GET http://localhost:3000/comment/693b313e735255e9e615823a
 
 ###
-PUT http://localhost:3000/comment/693b313e735255e9e615823a
+PUT http://localhost:3000/comment/693bd570a3ac5aab38612432
 Content-Type: application/json
 
 {
-  "content": "Nevermind i dont like this post",
-  "post": "693b2f0f735255e9e6158227",
-  "sender": "693b2e1c735255e9e6158225"
+  "content": "Nevermind1 i dont like this post"
 }
 
 ###
-DELETE http://localhost:3000/comment/693b313e735255e9e615823a
+DELETE http://localhost:3000/comment/693bd570a3ac5aab38612432
+
+### 
+DELETE http://localhost:3000/comment
 

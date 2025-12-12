@@ -57,6 +57,7 @@ const deleteComment = async (req, res) => {
 };
 
 
+
 const updateComment = async (req, res) => {
   const id = req.params.id;
   const updatedData = req.body;

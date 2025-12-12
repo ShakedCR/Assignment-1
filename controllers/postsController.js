@@ -50,6 +50,16 @@ const deletePost = async (req, res) => {
   }
 };
 
+const deleteAllPosts = async (req, res) => {
+  try {
+    await postModel.deleteMany({});
+    res.status(200).send("All posts deleted");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error deleting all posts");
+  }
+};
+
 const updatePost = async (req, res) => {
   const id = req.params.id;
   const updatedData = req.body;
@@ -69,5 +79,6 @@ module.exports = {
   getPostById,
   createPost,
   deletePost,
+  deleteAllPosts,
   updatePost,
 };

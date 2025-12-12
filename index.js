@@ -10,7 +10,7 @@ const commentsRoute = require("./routes/commentsRoute");
 app.use(express.json());
 
 app.get('/', (req, res) => {
-res.send('Hello World!')
+res.send('Welcome to Ron and Shaked\'s Comments and Posts API!')
 });
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_URL)
